@@ -1,0 +1,10 @@
+{
+  "config_fb": {
+    "apiKey": "AIzaSyCeDfncmN-9FXb-1Gv4wcRpDWZ4AUnrqws",
+    "authDomain": "radioapp-a8558.firebaseapp.com",
+    "databaseURL": "https://radioapp-a8558.firebaseio.com",
+    "projectId": "radioapp-a8558",
+    "storageBucket": "radioapp-a8558.appspot.com",
+    "messagingSenderId": "944992282412"
+  }
+}

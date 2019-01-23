@@ -1,0 +1,33 @@
+{
+  "config_fb": {
+    "apiKey": "AIzaSyB0ZmMkENfp6PzeBvhJNmvH9Nt5Sb6ZO7k",
+    "authDomain": "development-ra.firebaseapp.com",
+    "databaseURL": "https://development-ra.firebaseio.com",
+    "projectId": "development-ra",
+    "storageBucket": "development-ra.appspot.com",
+    "messagingSenderId": "912825104858"
+  },
+  "twilio": {
+    "accountSid": "AC6ec73d56f86f97d0f12a74cac14c43b2",
+    "authToken": "03ba0841e8cd86e93dbb65709397e9e9"
+  },
+  "mobilink_cred": {
+    "number": "03028505479",
+    "password": "123.123",
+    "mask": "ROADIOAPP"
+  },
+  "nexmo": {
+    "api_key": "cb3069e3",
+    "api_secret": "f61e368229a26f9a",
+    "from": "ROADIOAPP"
+  },
+  "smtp": {
+    "host": "mail.roadioapp.com",
+    "port": 587,
+    "secure": false,
+    "auth": {
+      "user": "noreply@roadioapp.com",
+      "pass": "Nor123_"
+    }
+  }
+}

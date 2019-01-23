@@ -25,6 +25,9 @@
 
 <script>
 import usersData from './UsersData'
+import firebase from 'firebase'
+import moment from 'moment'
+
 export default {
   name: 'Users',
   props: {
@@ -53,8 +56,22 @@ export default {
       default: false
     }
   },
+     created: function () {
+           let self = this;
+            const db = firebase.database();
+            self.userRef = db.ref('/users');
+            console.log(self.userRef);
+              self.userRef.orderByChild('type').equalTo('driver').on('value', function (snap) {
+                        let renderData = snap.val();
+                        self.user = renderData
+                        console.log(renderData);
+                    })
+          
+                   
+     },
   data: () => {
     return {
+      user: "",
       items: usersData.filter((user) => user.id < 42),
       fields: [
         {key: 'id'},
@@ -78,6 +95,7 @@ export default {
             : status === 'Banned' ? 'danger' : 'primary'
     },
     getRowCount (items) {
+      console.log(items)
       return items.length
     },
     userLink (id) {

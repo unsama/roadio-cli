@@ -11,15 +11,15 @@
                   <p class="text-muted">Sign In to your account</p>
                   <b-input-group class="mb-3">
                     <b-input-group-prepend><b-input-group-text><i class="icon-user"></i></b-input-group-text></b-input-group-prepend>
-                    <b-form-input type="text" class="form-control" placeholder="Username" autocomplete="username email" />
+                    <b-form-input type="text" class="form-control" name='email' v-model='email' placeholder="Username" autocomplete="username email" />
                   </b-input-group>
                   <b-input-group class="mb-4">
                     <b-input-group-prepend><b-input-group-text><i class="icon-lock"></i></b-input-group-text></b-input-group-prepend>
-                    <b-form-input type="password" class="form-control" placeholder="Password" autocomplete="current-password" />
+                    <b-form-input type="password" class="form-control" name='password' v-model='password'  placeholder="Password" autocomplete="current-password" />
                   </b-input-group>
                   <b-row>
                     <b-col cols="6">
-                      <b-button variant="primary" class="px-4">Login</b-button>
+                      <b-button variant="primary" v-on:click="login" class="px-4">Login</b-button>
                     </b-col>
                     <b-col cols="6" class="text-right">
                       <b-button variant="link" class="px-0">Forgot password?</b-button>
@@ -45,7 +45,43 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+import SimpleVueValidation from 'simple-vue-validator'
+const Validator = SimpleVueValidation.Validator;
+import $ from "jquery";
+
 export default {
-  name: 'Login'
+  name: 'Login',
+   data: function(){
+        return {
+            mainErr: '',
+            email: '',
+            password: ''
+        }
+    },
+     validators: {
+        email: function(value){
+            return Validator.value(value).required().email();
+        },
+        password: function(value){
+            return Validator.value(value).required().minLength(6).maxLength(35);
+        }
+    },
+
+    methods: {
+        login: function(){
+            let self = this;
+            self.$validate().then(function (success) {
+                if(success){
+                    firebase.auth().signInWithEmailAndPassword(self.email, self.password).then(function(){
+                        self.$router.push('/dashboard/dashboard');
+                    }).catch(function (err) {
+                        self.mainErr = err.message;
+                        console.log(err);
+                    });
+                }
+            });
+        }
+    }
 }
 </script>

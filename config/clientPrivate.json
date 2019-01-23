@@ -1,0 +1,10 @@
+{
+  "config_fb": {
+    "apiKey": "AIzaSyB0ZmMkENfp6PzeBvhJNmvH9Nt5Sb6ZO7k",
+    "authDomain": "development-ra.firebaseapp.com",
+    "databaseURL": "https://development-ra.firebaseio.com",
+    "projectId": "development-ra",
+    "storageBucket": "development-ra.appspot.com",
+    "messagingSenderId": "912825104858"
+  }
+}

@@ -61,12 +61,12 @@ const User = () => import('@/views/users/User')
 Vue.use(Router)
 
 export default new Router({
-  mode: 'hash', // https://router.vuejs.org/api/#mode
+  mode: 'history', // https://router.vuejs.org/api/#mode
   linkActiveClass: 'open active',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     {
-      path: '/',
+      path: '/dashboard',
       redirect: '/dashboard',
       name: 'Home',
       component: DefaultContainer,
@@ -303,8 +303,8 @@ export default new Router({
       ]
     },
     {
-      path: '/pages',
-      redirect: '/pages/404',
+      path: '/',
+      redirect: '/login',
       name: 'Pages',
       component: {
         render (c) { return c('router-view') }
